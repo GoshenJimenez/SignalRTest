@@ -19,7 +19,7 @@
 <script src="~/microsoft/signalr/dist/browser/signalr.js"></script>
 <script>
     const connection = new signalR.HubConnectionBuilder()
-        .withUrl("https://localhost:7254/messageHub")       
+        .withUrl("@ViewData["HubUrl"]/messageHub")
         .configureLogging(signalR.LogLevel.Information)
         .build();
 
