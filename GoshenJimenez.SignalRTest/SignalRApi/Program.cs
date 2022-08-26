@@ -10,12 +10,14 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddSignalR();
 
+var clientUrl = builder.Configuration["ClientUrl"];
+
 builder.Services.AddCors(options =>
 {
     options.AddDefaultPolicy(
         builder =>
         {
-            builder.WithOrigins("https://localhost:7267")
+            builder.WithOrigins(clientUrl)
                 .AllowAnyHeader()
                 .AllowAnyMethod()
                 .WithMethods("GET", "POST")
